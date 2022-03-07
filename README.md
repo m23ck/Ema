@@ -1,4 +1,33 @@
 # Ema
+# Employee Management Alembo
+
+Database Connectie:
+* Make sure you have turned on MySQL with Xampp 
+
+* Run in je terminal:
+ docker compose up db -d
+
+## Checklist:
+  - The look
+  - The word choice in dutch
+  - the easy of use
+  - the nice to haves
+  - the inputs
+  - highlights on texts
+  - highlights on inputs
+  - highlights on buttons
+  - buttons
+  - create an input component
+  - create a button component
+  - create a form component
+  - host db in docker
+  - write a clear step by step instruction to setting up the project as a developer
+  - Give clear instructions to using it as an end user
+  - animations on load or adding of an employee
+
+
+------------------------------------------------
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
