@@ -1,4 +1,3 @@
-# Ema
 # Employee Management Alembo
 
 Database Connectie:
