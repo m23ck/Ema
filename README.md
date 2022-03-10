@@ -4,7 +4,7 @@ Database Connectie:
 * Make sure you have turned on MySQL with Xampp 
 
 * Run in je terminal:
- docker compose up db -d
+ edit the db connection details in the .env file to yours
 
 ## Checklist:
   - The look
