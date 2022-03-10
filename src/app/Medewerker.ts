@@ -1,5 +1,5 @@
 export interface Medewerker {
-    id?: number;
+    id: number;
     voornaam: string;
     achternaam: string;
     geslacht: string;
@@ -8,5 +8,5 @@ export interface Medewerker {
     straatnaam: string;
     huisnummer: string;
     district: string;
-    active: boolean;
+    isActive: boolean;
 }
