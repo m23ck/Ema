@@ -1,0 +1,39 @@
+<form #medewerkerForm="ngForm" action="{{action}}" method="{{method}}">
+    <span class="text-blue font-semibold">Persoonlijke Gegevens</span>
+    <app-input name="Voornaam" type="text"></app-input>
+    <app-input name="Achternaam" type="text"></app-input>
+    <div class="flex flex-col my-2">
+        <label class="text-black my-2" for="Geslacht">Geslacht</label>
+        <select name="Geslacht"
+            class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none">
+            <option value="Man">Man</option>
+            <option value="Vrouw">Vrouw</option>
+            <option value="Anders">Anders</option>
+        </select>
+    </div>
+    <span class="text-blue font-semibold">Contact Gegevens</span>
+    <app-input name="Email" type="text"></app-input>
+    <app-input name="Telefoon" type="number"></app-input>
+    <span class="text-blue font-semibold">Woonplaats</span>
+    <app-input name="Straatnaam" type="text"></app-input>
+    <app-input name="Huisnummer" type="text"></app-input>
+    <app-input name="District" type="text"></app-input>
+    <div class="flex flex-col my-2">
+        <label class="text-black my-2" for="District">District</label>
+        <select name="District"
+            class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none">
+            <option value="Brokopondo">Brokopondo</option>
+            <option value="Commewijne">Commewijne</option>
+            <option value="Coronie">Coronie</option>
+            <option value="Marowijne">Marowijne</option>
+            <option value="Nickerie">Nickerie</option>
+            <option value="Para">Para</option>
+            <option value="Paramaribo">Paramaribo</option>
+            <option value="Saramacca">Saramacca</option>
+            <option value="Sipaliwini">Sipaliwini</option>
+            <option value="Wanica">Wanica</option>
+        </select>
+
+    </div>
+    <app-button class="flex justify-center my-16 hover:animate-pulse" color="blue" text="Opslaan"></app-button>
+</form>
