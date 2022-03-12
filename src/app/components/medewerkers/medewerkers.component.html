@@ -1,1 +1,41 @@
-<p>medewerkers works!</p>
+<app-button class=" flex justify-center my-8" color="blue" text="Medewerker Toevoegen" routerLink="/add-medewerker"
+    routerLinkActive="active"></app-button>
+<div>
+    <h2>medewerkers</h2>
+    <p-table *ngIf="this.medewerkers" [value]="this.medewerkers" [paginator]="true" [rows]="10">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th>ID</th>
+                <th>Voornaam</th>
+                <th>Achternaam</th>
+                <th>Geslacht</th>
+                <th>Email</th>
+                <th>Telefoon</th>
+                <th>Straatnaam</th>
+                <th>Huisnummer</th>
+                <th>District</th>
+                <th>Active</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-medewerker let-columns="columns">
+            <tr>
+                <td>{{medewerker.id}}</td>
+                <td>{{medewerker.voornaam}}</td>
+                <td>{{medewerker.achternaam}}</td>
+                <td>{{medewerker.geslacht}}</td>
+                <td>{{medewerker.email}}</td>
+                <td>{{medewerker.telefoon}}</td>
+                <td>{{medewerker.straatnaam}}</td>
+                <td>{{medewerker.huisnummer}}</td>
+                <td>{{medewerker.district}}</td>
+                <td>{{medewerker.isActive}}</td>
+                <td><a [routerLink]="['view-medewerker', medewerker.id]">Bekijken</a></td>
+                <td><a [routerLink]="['edit-medewerker', medewerker.id]">Bewerken</a></td>
+                <td><a [routerLink]="['change-medewerker-status', medewerker.id]">status ver</a></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

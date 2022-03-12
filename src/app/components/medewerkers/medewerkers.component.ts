@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Medewerkers } from 'src/app/mock-medewerkers';
+import { MedewerkersService } from './medewerkers.service';
 import { Medewerker } from 'src/app/Medewerker';
+import {TableModule} from 'primeng/table';
 
 @Component({
   selector: 'app-medewerkers',
@@ -9,12 +10,17 @@ import { Medewerker } from 'src/app/Medewerker';
 })
 export class MedewerkersComponent implements OnInit {
 
-  medewerkers: Medewerker[] = Medewerkers;
+  public medewerkers: Medewerker[] = [];
 
-
-  constructor() { }
+  constructor(private medewerkersService: MedewerkersService) { }
 
   ngOnInit(): void {
+    this.getMedewerkers();
   }
 
+  getMedewerkers() {
+    this.medewerkersService.getMedewerkers().subscribe(
+      (response: Medewerker[]) => this.medewerkers = response
+    )
+  }
 }
