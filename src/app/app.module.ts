@@ -9,6 +9,12 @@ import { MedewerkersComponent } from './components/medewerkers/medewerkers.compo
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './views/home/home.component';
 import { MedewerkersbeheerComponent } from './views/medewerkersbeheer/medewerkersbeheer.component';
+import { AddMedewerkerComponent } from './views/add-medewerker/add-medewerker.component';
+import { FormComponent } from './components/form/form.component';
+import { InputComponent } from './components/input/input.component';
+import {TableModule} from 'primeng/table';
+import { EditMedewerkerComponent } from './views/edit-medewerker/edit-medewerker.component';
+import { ViewMedewerkerComponent } from './views/view-medewerker/view-medewerker.component';
 
 
 
@@ -19,12 +25,18 @@ import { MedewerkersbeheerComponent } from './views/medewerkersbeheer/medewerker
     ButtonComponent,
     MedewerkersComponent,
     HomeComponent,
-    MedewerkersbeheerComponent
+    MedewerkersbeheerComponent,
+    AddMedewerkerComponent,
+    FormComponent,
+    InputComponent,
+    EditMedewerkerComponent,
+    ViewMedewerkerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
