@@ -1,5 +1,7 @@
 <app-button class=" flex justify-center my-8" color="blue" text="Medewerker Toevoegen" routerLink="/add-medewerker"
     routerLinkActive="active"></app-button>
+<a class=" flex justify-center my-8 bg-blue text-white" href="medewerkers/add-medewerker" routerLink="/add-medewerker"
+    routerLinkActive="active">Medewerker Toevoegen</a>
 <div>
     <h2>medewerkers</h2>
     <p-table *ngIf="this.medewerkers" [value]="this.medewerkers" [paginator]="true" [rows]="10">
