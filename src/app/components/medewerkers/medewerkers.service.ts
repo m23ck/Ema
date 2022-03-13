@@ -8,18 +8,27 @@ import { Medewerker } from 'src/app/Medewerker';
 })
 export class MedewerkersService {
 
-  readonly API_URL = "http://127.0.0.1:4423";
+  readonly API_URL = "http://127.0.0.1:4423/medewerkers";
   medewerkers!: Observable<Medewerker[]>;
   medewerker!: Observable<Medewerker>;
 
   constructor(private http: HttpClient) { }
 
   getMedewerkers() {
-    return this.medewerkers = this.http.get<Medewerker[]>(this.API_URL + '/medewerkers')
+    return this.medewerkers = this.http.get<Medewerker[]>(this.API_URL + '')
   }
 
-  viewMedewerker(id: string) {
-    return this.medewerker = this.http.get<Medewerker>(this.API_URL + '/medewerkers/' + id)
+  viewMedewerker(id: number) {
+    return this.medewerker = this.http.get<Medewerker>(this.API_URL + '/' + id)
+
+  }
+
+  addMedewerker(medewerkerObj: Medewerker){
+    return this.http.post(this.API_URL + '', medewerkerObj)
+  }
+
+  updateMedewerker(id: number, medewerkerObj: Medewerker){
+    return this.http.patch(this.API_URL + '/' + id, medewerkerObj)
 
   }
 }
