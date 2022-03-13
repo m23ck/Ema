@@ -10,7 +10,7 @@ import { Medewerker } from 'src/app/Medewerker';
 })
 export class ViewMedewerkerComponent implements OnInit {
 
-  medewerkerId: string = '';
+  medewerkerId: number = 0;
   public medewerker!: Medewerker | null;
   constructor(private medewerkersService: MedewerkersService, private activatedRoute: ActivatedRoute) { }
 
@@ -19,10 +19,12 @@ export class ViewMedewerkerComponent implements OnInit {
     const medewerkerId = this.activatedRoute.params.subscribe(data => {
       this.medewerkerId = data['id'];
     })
+    if(this.medewerkerId !== 0){
 
-    this.medewerkersService.viewMedewerker(this.medewerkerId).subscribe(
-      (response: Medewerker) => this.medewerker = response
-    );
+      this.medewerkersService.viewMedewerker(this.medewerkerId).subscribe(
+        (response: Medewerker) => this.medewerker = response
+        );
+      }
   }
 
 }
