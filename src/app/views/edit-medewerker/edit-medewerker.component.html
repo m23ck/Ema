@@ -3,5 +3,108 @@
         alt="Pictogram van medewerker toevoegen" width="200vw" height="auto" />
     <h3 class="font-base text-xl tracking-widest flex justify-center my-2">Vul de onderstaande gegevens nauwkeurig in
     </h3>
-    <app-form class="flex justify-center my-8" method="POST" action="test"></app-form>
+    <form *ngIf="dataLoaded"
+    class="flex justify-center my-8"
+    [formGroup]="editMedewerkerForm"
+    (submit)="updateMedewerker()"
+  >
+    <div [formGroup]="editMedewerkerForm">
+      <span class="text-blue font-semibold">Persoonlijke Gegevens</span>
+
+      <div class="flex flex-col my-2">
+        <label class="text-black my-2" for="voornaam">Voornaam</label>
+        <input
+          formControlName="voornaam"
+          type="text"
+          name="voornaam"
+          class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
+        />
+      </div>
+      <div class="flex flex-col my-2">
+        <label class="text-black my-2" for="achternaam">Achternaam</label>
+        <input
+          formControlName="achternaam"
+          type="text"
+          name="achternaam"
+          class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
+        />
+      </div>
+
+      <div class="flex flex-col my-2">
+        <label class="text-black my-2" for="geslacht">Geslacht</label>
+        <select
+          name="geslacht"
+          formControlName="geslacht"
+          class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
+        >
+          <option value="Man">Man</option>
+          <option value="Vrouw">Vrouw</option>
+          <option value="Anders">Anders</option>
+        </select>
+      </div>
+      <span class="text-blue font-semibold">Contact Gegevens</span>
+      <div class="flex flex-col my-2">
+        <label class="text-black my-2" for="email">Email</label>
+        <input
+          formControlName="email"
+          type="text"
+          name="email"
+          class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
+        />
+      </div>
+      <div class="flex flex-col my-2">
+        <label class="text-black my-2" for="telefoon">Telefoon</label>
+        <input
+          formControlName="telefoon"
+          type="number"
+          name="telefoon"
+          class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
+        />
+      </div>
+      <span class="text-blue font-semibold">Woonplaats</span>
+      <div class="flex flex-col my-2">
+        <label class="text-black my-2" for="straatnaam">Straatnaam</label>
+        <input
+          formControlName="straatnaam"
+          type="text"
+          name="straatnaam"
+          class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
+        />
+      </div>
+      <div class="flex flex-col my-2">
+        <label class="text-black my-2" for="huisnummer">Huisnummer</label>
+        <input
+          formControlName="huisnummer"
+          type="text"
+          name="huisnummer"
+          class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
+        />
+      </div>
+      <div class="flex flex-col my-2">
+        <label class="text-black my-2" for="district">District</label>
+        <select
+          name="district"
+          formControlName="district"
+          class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
+        >
+          <option value="Brokopondo">Brokopondo</option>
+          <option value="Commewijne">Commewijne</option>
+          <option value="Coronie">Coronie</option>
+          <option value="Marowijne">Marowijne</option>
+          <option value="Nickerie">Nickerie</option>
+          <option value="Para">Para</option>
+          <option value="Paramaribo">Paramaribo</option>
+          <option value="Saramacca">Saramacca</option>
+          <option value="Sipaliwini">Sipaliwini</option>
+          <option value="Wanica">Wanica</option>
+        </select>
+        <app-button
+          type="submit"
+          class="flex justify-center my-16 hover:animate-pulse"
+          color="blue"
+          text="Opslaan"
+        ></app-button>
+      </div>
+    </div>
+  </form>    
 </div>
