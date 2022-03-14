@@ -47,13 +47,4 @@ export class MedewerkersComponent implements OnInit {
       (response: Medewerker[]) => this.medewerkers = response
     )
   }
-
-  // changeMedewerkerStatus(){
-  //   this.medewerkersService.updateMedewerker(this.medewerkerId, this.medewerker ).subscribe(data => {
-  //     console.log("medewerker geupdate")
-  //   },err => {
-  //       console.log(err)
-  //     }
-  // )
-  // }
 }
