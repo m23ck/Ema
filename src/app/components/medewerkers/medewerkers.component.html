@@ -1,6 +1,6 @@
 <!-- <app-button class=" flex justify-center my-8" color="blue" text="Medewerker Toevoegen" routerLink="add-medewerker"
     routerLinkActive="active"></app-button> -->
-<div class="w-fit p-5 bg-white shadow-xl rounded-lg">
+<div class="w-fill p-5">
     <p-table #dt *ngIf="this.medewerkers.length>0" [columns]="cols" [value]="this.medewerkers" [paginator]="true" [rows]="10"
         sortMode="multiple" sortField="voornaam"
         [globalFilterFields]="['voornaam', 'achternaam', 'district', 'geslacht']">
@@ -57,8 +57,7 @@
                 <td class="px-2">
                     <a [routerLink]="[
               'change-medewerker-status',
-              medewerker.id,
-              medewerker
+              medewerker.id              
             ]"><div class="w-28 text-center text-white rounded p-2 border-2 {{
               medewerker.isActive
                 ? 'bg-red hover:bg-white hover:text-red hover:border-2 hover:border-red focus:bg-white focus:text-redfocus:border-red '
