@@ -19,7 +19,7 @@ export class AddMedewerkerComponent implements OnInit {
       'achternaam': new FormControl('', [Validators.required]),
       'geslacht': new FormControl('', [Validators.required]),
       'email': new FormControl('', [Validators.required]),
-      'telefoon': new FormControl('', [Validators.required]),
+      'telefoon': new FormControl('', [Validators.required, Validators.minLength(7)]),
       'straatnaam': new FormControl('', [Validators.required]),
       'huisnummer': new FormControl('', [Validators.required]),
       'district': new FormControl('', [Validators.required]),

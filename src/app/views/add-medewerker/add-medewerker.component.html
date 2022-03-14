@@ -25,6 +25,7 @@
           name="voornaam"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
+        <span *ngIf="addMedewerkerForm.controls['voornaam'].errors && addMedewerkerForm.controls['voornaam'].hasError('required') " class="text-red font-xs my-1">Voer uw voornaam in!</span>
       </div>
       <div class="flex flex-col my-2">
         <label class="text-black my-2" for="achternaam">Achternaam</label>
@@ -34,6 +35,8 @@
           name="achternaam"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
+        <span *ngIf="addMedewerkerForm.controls['achternaam'].errors && addMedewerkerForm.controls['achternaam'].hasError('required') " class="text-red font-xs my-1">Voer uw achternaam in!</span>
+
       </div>
 
       <div class="flex flex-col my-2">
@@ -47,6 +50,8 @@
           <option value="Vrouw">Vrouw</option>
           <option value="Anders">Anders</option>
         </select>
+        <span *ngIf="addMedewerkerForm.controls['geslacht'].errors && addMedewerkerForm.controls['geslacht'].hasError('required') " class="text-red font-xs my-1">Voer uw geslacht in!</span>
+
       </div>
       <span class="text-blue font-semibold">Contact Gegevens</span>
       <div class="flex flex-col my-2">
@@ -57,6 +62,8 @@
           name="email"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
+        <span *ngIf="addMedewerkerForm.controls['email'].errors && addMedewerkerForm.controls['email'].hasError('required') " class="text-red font-xs my-1">Voer uw email-adres in!</span>
+
       </div>
       <div class="flex flex-col my-2">
         <label class="text-black my-2" for="telefoon">Telefoon</label>
@@ -66,6 +73,9 @@
           name="telefoon"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
+        <span *ngIf="addMedewerkerForm.controls['telefoon'].errors && addMedewerkerForm.controls['telefoon'].hasError('required') " class="text-red font-xs my-1">Voer uw telefoonnummer in!</span>
+        <span *ngIf="addMedewerkerForm.controls['telefoon'].errors && addMedewerkerForm.controls['telefoon'].hasError('minlength') " class="text-red font-xs my-1">Het telefoonnummer heeft niet genoeg cijfers!</span>
+
       </div>
       <span class="text-blue font-semibold">Woonplaats</span>
       <div class="flex flex-col my-2">
@@ -76,6 +86,8 @@
           name="straatnaam"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
+        <span *ngIf="addMedewerkerForm.controls['straatnaam'].errors && addMedewerkerForm.controls['straatnaam'].hasError('required') " class="text-red font-xs my-1">Voer uw straatnaamin!</span>
+
       </div>
       <div class="flex flex-col my-2">
         <label class="text-black my-2" for="huisnummer">Huisnummer</label>
@@ -85,6 +97,8 @@
           name="huisnummer"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
+        <span *ngIf="addMedewerkerForm.controls['huisnummer'].errors && addMedewerkerForm.controls['huisnummer'].hasError('required') " class="text-red font-xs my-1">Voer uw huisnummer in!</span>
+        
       </div>
       <div class="flex flex-col my-2">
         <label class="text-black my-2" for="district">District</label>
@@ -104,6 +118,9 @@
           <option value="Sipaliwini">Sipaliwini</option>
           <option value="Wanica">Wanica</option>
         </select>
+        <span *ngIf="addMedewerkerForm.controls['district'].errors && addMedewerkerForm.controls['district'].hasError('required') " class="text-red font-xs my-1">Voer uw district in!</span>
+
+      </div>
         <app-button
           type="submit"
           class="flex justify-center my-16 hover:animate-pulse"
@@ -111,7 +128,6 @@
           text="Opslaan"
           [disabled]="!addMedewerkerForm.valid"
         ></app-button>
-      </div>
     </div>
   </form>
 </div>
