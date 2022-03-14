@@ -16,6 +16,7 @@ import {TableModule} from 'primeng/table';
 import { EditMedewerkerComponent } from './views/edit-medewerker/edit-medewerker.component';
 import { ViewMedewerkerComponent } from './views/view-medewerker/view-medewerker.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ChangeMedewerkerStatusComponent } from './components/change-medewerker-status/change-medewerker-status.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormComponent,
     InputComponent,
     EditMedewerkerComponent,
-    ViewMedewerkerComponent
+    ViewMedewerkerComponent,
+    ChangeMedewerkerStatusComponent
   ],
   imports: [
     BrowserModule,
