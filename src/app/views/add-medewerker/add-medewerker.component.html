@@ -1,11 +1,13 @@
 <div class="flex justify-items-center flex-col w-full">
-  <img
-    class="flex justify-self-center"
+  <div class="flex justify-center">
+    <img
+    class="w-48"
     src="../../../assets/images/undraw_updated_resume_re_q1or.svg"
     alt="Pictogram van medewerker toevoegen"
-    width="200vw"
+    width="100%"
     height="auto"
-  />
+    />
+  </div>
   <h3 class="font-base text-xl tracking-widest flex justify-center my-2">
     Vul de onderstaande gegevens nauwkeurig in
   </h3>
@@ -15,7 +17,7 @@
     (submit)="createMedewerker()"
   >
     <div [formGroup]="addMedewerkerForm">
-      <span class="text-blue font-semibold">Persoonlijke Gegevens</span>
+      <span class="text-blue font-semibold text-lg">Persoonlijke Gegevens</span>
 
       <div class="flex flex-col my-2">
         <label class="text-black my-2" for="voornaam">Voornaam</label>
@@ -23,6 +25,7 @@
           formControlName="voornaam"
           type="text"
           name="voornaam"
+          placeholder="John"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
         <span *ngIf="addMedewerkerForm.controls['voornaam'].errors && addMedewerkerForm.controls['voornaam'].hasError('required') " class="text-red font-xs my-1">Voer uw voornaam in!</span>
@@ -33,6 +36,7 @@
           formControlName="achternaam"
           type="text"
           name="achternaam"
+          placeholder="Doe"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
         <span *ngIf="addMedewerkerForm.controls['achternaam'].errors && addMedewerkerForm.controls['achternaam'].hasError('required') " class="text-red font-xs my-1">Voer uw achternaam in!</span>
@@ -46,20 +50,22 @@
           formControlName="geslacht"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         >
+          <option value="" selected disabled>Kies een geslacht</option>
           <option value="Man">Man</option>
           <option value="Vrouw">Vrouw</option>
           <option value="Anders">Anders</option>
         </select>
-        <span *ngIf="addMedewerkerForm.controls['geslacht'].errors && addMedewerkerForm.controls['geslacht'].hasError('required') " class="text-red font-xs my-1">Voer uw geslacht in!</span>
+        <span *ngIf="addMedewerkerForm.controls['geslacht'].errors && addMedewerkerForm.controls['geslacht'].hasError('required') " class="text-red font-xs my-1">Kies een geslacht in!</span>
 
       </div>
-      <span class="text-blue font-semibold">Contact Gegevens</span>
+      <span class="text-blue font-semibold text-lg">Contact Gegevens</span>
       <div class="flex flex-col my-2">
         <label class="text-black my-2" for="email">Email</label>
         <input
           formControlName="email"
           type="text"
           name="email"
+          placeholder="johndoe@gmail.com"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
         <span *ngIf="addMedewerkerForm.controls['email'].errors && addMedewerkerForm.controls['email'].hasError('required') " class="text-red font-xs my-1">Voer uw email-adres in!</span>
@@ -71,19 +77,21 @@
           formControlName="telefoon"
           type="number"
           name="telefoon"
+          placeholder="8987854"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
         <span *ngIf="addMedewerkerForm.controls['telefoon'].errors && addMedewerkerForm.controls['telefoon'].hasError('required') " class="text-red font-xs my-1">Voer uw telefoonnummer in!</span>
         <span *ngIf="addMedewerkerForm.controls['telefoon'].errors && addMedewerkerForm.controls['telefoon'].hasError('minlength') " class="text-red font-xs my-1">Het telefoonnummer heeft niet genoeg cijfers!</span>
 
       </div>
-      <span class="text-blue font-semibold">Woonplaats</span>
+      <span class="text-blue font-semibold text-lg">Woonplaats</span>
       <div class="flex flex-col my-2">
         <label class="text-black my-2" for="straatnaam">Straatnaam</label>
         <input
           formControlName="straatnaam"
           type="text"
           name="straatnaam"
+          placeholder="Surinamestraat"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
         <span *ngIf="addMedewerkerForm.controls['straatnaam'].errors && addMedewerkerForm.controls['straatnaam'].hasError('required') " class="text-red font-xs my-1">Voer uw straatnaamin!</span>
@@ -95,6 +103,7 @@
           formControlName="huisnummer"
           type="text"
           name="huisnummer"
+          placeholder="5a"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
         <span *ngIf="addMedewerkerForm.controls['huisnummer'].errors && addMedewerkerForm.controls['huisnummer'].hasError('required') " class="text-red font-xs my-1">Voer uw huisnummer in!</span>
@@ -107,6 +116,7 @@
           formControlName="district"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         >
+          <option value="" selected disabled>Kies een district</option>
           <option value="Brokopondo">Brokopondo</option>
           <option value="Commewijne">Commewijne</option>
           <option value="Coronie">Coronie</option>
