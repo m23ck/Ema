@@ -33,6 +33,7 @@ export class EditMedewerkerComponent implements OnInit {
         console.log(this.medewerker)
         // build the edit form
       this.editMedewerkerForm = this.formBuilder.group({
+        'id': new FormControl(this.medewerker?.id, [Validators.required]),
         'voornaam': new FormControl(this.medewerker?.voornaam, [Validators.required]),
         'achternaam': new FormControl(this.medewerker?.achternaam, [Validators.required]),
         'geslacht': new FormControl(this.medewerker?.geslacht, [Validators.required]),
