@@ -54,12 +54,15 @@
       </div>
       <div class="flex flex-col my-2">
         <label class="text-black my-2" for="telefoon">Telefoon</label>
-        <input
+        <div class="w-96 h-12">
+          <input class="w-1/5 h-full text-white font-semibold text-center rounded-l bg-blue" type="text" disabled value="+597">
+          <input
           formControlName="telefoon"
           type="number"
           name="telefoon"
-          class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
-        />
+          class=" bg-gray h-full w-4/5 text-black font-normal hover:bg-white rounded-r hover:border-2 hover:border-blue focus:border-blue outline-none"
+          />
+        </div>
       </div>
       <span class="text-blue font-semibold">Woonplaats</span>
       <div class="flex flex-col my-2">
