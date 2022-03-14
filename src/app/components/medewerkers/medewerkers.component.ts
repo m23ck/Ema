@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MedewerkersService } from './medewerkers.service';
 import { Medewerker } from 'src/app/Medewerker';
-import {TableModule} from 'primeng/table';
+import {Table, TableModule} from 'primeng/table';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -15,6 +15,7 @@ export class MedewerkersComponent implements OnInit {
   medewerkerId: number = 0;
   medewerker: Medewerker | undefined;
   cols!: any[];
+  @ViewChild('dt') dt: Table | undefined;
 
   constructor(private medewerkersService: MedewerkersService, private activatedRoute: ActivatedRoute) { }
 
@@ -36,6 +37,9 @@ export class MedewerkersComponent implements OnInit {
       { field: 'district', header: 'District' },
       { field: 'actief', header: 'Actief' }
   ];
+  }
+  applyFilterGlobal($event: any, stringVal: any) {
+    this.dt!.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
 
   getMedewerkers() {

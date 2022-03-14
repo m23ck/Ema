@@ -5,21 +5,21 @@
         sortMode="multiple" sortField="voornaam"
         [globalFilterFields]="['voornaam', 'achternaam', 'district', 'geslacht']">
         <ng-template pTemplate="caption">
-            <div class="flex flex-row justify-left w-full items-center grid-cols-3 mb-1">
-                <h2 class="font-semibold text-left text-xl w-9/12">Medewerkers</h2>
+            <div class="flex flex-row justify-left w-full items-center grid-cols-3 mb-1 h-24">
+                <h2 class="font-semibold text-left text-xl w-7/12">Medewerkers</h2>
                 <!-- add button -->
-                <div class="w-1/6 justify-right">
+                <div class="w-2/12 justify-right">
                     <a class="w-full bg-blue text-center text-white rounded hover:bg-white hover:text-blue border-2 hover:border-blue focus:bg-white focus:text-blue focus:border-blue px-4 py-2"
                         [routerLink]="['add-medewerker']">Medewerker Toevoegen</a>
                 </div>
                 <!-- search input -->
-                <div class="flex text-black w-1/6">
-                    <span class="p-input-icon-left ml-auto">
-                        <i class="pi pi-search"></i>
-                        <input class="outline-none border-2 border-blue rounded h-10" type="text"
-                            placeholder="Global Search" />
-                        <!-- <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" /> -->
-                    </span>
+                <div class="flex text-black w-3/12 h-10">
+                    <div class="flex justify-center w-2/12 h-full text-white font-semibold text-center rounded-l bg-blue" type="text" disabled value="+597">
+                        <img class="w-5" src="../../../assets/images/search_vector.svg" alt="search icon">
+                    </div>
+                    <input class="bg-gray h-full w-10/12 outline-none border-2 border-gray rounded-r h-10" type="text"
+                        placeholder="Gegevens Zoeken" pInputText (input)="applyFilterGlobal($event, 'contains')" />
+                    <!-- <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" /> -->
                 </div>
             </div>
         </ng-template>
@@ -27,7 +27,9 @@
             <tr class="bg-blue text-white text-start w-84 h-12 rounded">
                 <th class="text-left pr-12" *ngFor="let col of columns" [pSortableColumn]="col.field">
                     <span class="text-left w-full pl-1">{{ col.header }}</span>
-                    <p-sortIcon [field]="col.field"></p-sortIcon> 
+                    <!-- <img class="w-8" src="../../../assets/images/filter_vector.png" alt="filter icon" width="100%" height="auto"> -->
+                    <!-- <p-sortIcon [field]="col.field">
+                    </p-sortIcon> -->
                 </th>
                 <th class="px-5"></th>
                 <th class="px-5"></th>
