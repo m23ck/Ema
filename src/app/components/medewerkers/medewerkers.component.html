@@ -1,42 +1,68 @@
-<app-button class=" flex justify-center my-8" color="blue" text="Medewerker Toevoegen" routerLink="/add-medewerker"
-    routerLinkActive="active"></app-button>
-<a class=" flex justify-center my-8 bg-blue text-white" href="medewerkers/add-medewerker" routerLink="/add-medewerker"
-    routerLinkActive="active">Medewerker Toevoegen</a>
-<div>
-    <h2>medewerkers</h2>
-    <p-table *ngIf="this.medewerkers" [value]="this.medewerkers" [paginator]="true" [rows]="10">
+<!-- <app-button class=" flex justify-center my-8" color="blue" text="Medewerker Toevoegen" routerLink="add-medewerker"
+    routerLinkActive="active"></app-button> -->
+<div class="w-fit p-5 bg-white shadow-xl rounded-lg">
+    <p-table #dt *ngIf="this.medewerkers" [columns]="cols" [value]="this.medewerkers" [paginator]="true" [rows]="10"
+        sortMode="multiple" sortField="voornaam"
+        [globalFilterFields]="['voornaam', 'achternaam', 'district', 'geslacht']">
+        <ng-template pTemplate="caption">
+            <div class="flex flex-row justify-left w-full items-center grid-cols-3 mb-1">
+                <h2 class="font-semibold text-left text-xl w-9/12">Medewerkers</h2>
+                <!-- add button -->
+                <div class="w-1/6 justify-right">
+                    <a class="w-full bg-blue text-center text-white rounded hover:bg-white hover:text-blue border-2 hover:border-blue focus:bg-white focus:text-blue focus:border-blue px-4 py-2"
+                        [routerLink]="['add-medewerker']">Medewerker Toevoegen</a>
+                </div>
+                <!-- search input -->
+                <div class="flex text-black w-1/6">
+                    <span class="p-input-icon-left ml-auto">
+                        <i class="pi pi-search"></i>
+                        <input class="outline-none border-2 border-blue rounded h-10" type="text"
+                            placeholder="Global Search" />
+                        <!-- <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" /> -->
+                    </span>
+                </div>
+            </div>
+        </ng-template>
         <ng-template pTemplate="header" let-columns>
-            <tr>
-                <th>ID</th>
-                <th>Voornaam</th>
-                <th>Achternaam</th>
-                <th>Geslacht</th>
-                <th>Email</th>
-                <th>Telefoon</th>
-                <th>Straatnaam</th>
-                <th>Huisnummer</th>
-                <th>District</th>
-                <th>Active</th>
-                <th></th>
-                <th></th>
-                <th></th>
+            <tr class="bg-blue text-white text-start w-84 h-12 rounded">
+                <th class="text-left pr-12" *ngFor="let col of columns" [pSortableColumn]="col.field">
+                    <span class="text-left w-full pl-1">{{ col.header }}</span>
+                    <p-sortIcon [field]="col.field"></p-sortIcon> 
+                </th>
+                <th class="px-5"></th>
+                <th class="px-5"></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-medewerker let-columns="columns">
-            <tr>
-                <td>{{medewerker.id}}</td>
-                <td>{{medewerker.voornaam}}</td>
-                <td>{{medewerker.achternaam}}</td>
-                <td>{{medewerker.geslacht}}</td>
-                <td>{{medewerker.email}}</td>
-                <td>{{medewerker.telefoon}}</td>
-                <td>{{medewerker.straatnaam}}</td>
-                <td>{{medewerker.huisnummer}}</td>
-                <td>{{medewerker.district}}</td>
-                <td>{{medewerker.isActive}}</td>
-                <td><a [routerLink]="['view-medewerker', medewerker.id]">Bekijken</a></td>
-                <td><a [routerLink]="['edit-medewerker', medewerker.id]">Bewerken</a></td>
-                <td><a [routerLink]="['change-medewerker-status', medewerker.id]">status ver</a></td>
+            <tr class="text-start font-light px-2 py-4 h-16 border-b-2 border-gray bg-white">
+                <td class="px-2">{{ medewerker.voornaam }}</td>
+                <td class="px-2">{{ medewerker.achternaam }}</td>
+                <td class="px-2">{{ medewerker.geslacht }}</td>
+                <td class="px-2">{{ medewerker.email }}</td>
+                <td class="px-2">{{ medewerker.telefoon }}</td>
+                <td class="px-2">{{ medewerker.straatnaam }}</td>
+                <td class="px-2">{{ medewerker.huisnummer }}</td>
+                <td class="px-2">{{ medewerker.district }}</td>
+                <td class="px-2" class="font-normal {{
+            medewerker.isActive ? 'text-green' : 'text-orange'
+          }}">
+                    {{ medewerker.isActive ? "Actief" : "Inactief" }}
+                </td>
+               
+                <td class="px-2">
+                    <a [routerLink]="['edit-medewerker', medewerker.id]"><div class="w-28 text-center bg-orange text-white rounded hover:bg-white hover:text-orange border-2 hover:border-orange focus:bg-white focus:text-orange focus:border-orange p-2">Bewerken</div></a>
+                </td>
+                <td class="px-2">
+                    <a [routerLink]="[
+              'change-medewerker-status',
+              medewerker.id,
+              medewerker
+            ]"><div class="w-28 text-center text-white rounded p-2 border-2 {{
+              medewerker.isActive
+                ? 'bg-red hover:bg-white hover:text-red hover:border-2 hover:border-red focus:bg-white focus:text-redfocus:border-red '
+                : 'bg-green hover:bg-white hover:text-green hover:border-2 hover:border-green focus:bg-white focus:text-green focus:border-2 focus:border-green '
+            }}">{{ medewerker.isActive ? "Deactiveren" : "Activeren" }}</div></a>
+                </td>
             </tr>
         </ng-template>
     </p-table>
