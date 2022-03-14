@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MedewerkersService } from 'src/app/components/medewerkers/medewerkers.service';
 import { Medewerker } from 'src/app/Medewerker';
@@ -33,15 +33,15 @@ export class EditMedewerkerComponent implements OnInit {
         console.log(this.medewerker)
         // build the edit form
       this.editMedewerkerForm = this.formBuilder.group({
-        'voornaam': new FormControl(this.medewerker?.voornaam),
-        'achternaam': new FormControl(this.medewerker?.achternaam),
-        'geslacht': new FormControl(this.medewerker?.geslacht),
-        'email': new FormControl(this.medewerker?.email),
-        'telefoon': new FormControl(this.medewerker?.telefoon),
-        'straatnaam': new FormControl(this.medewerker?.straatnaam),
-        'huisnummer': new FormControl(this.medewerker?.huisnummer),
-        'district': new FormControl(this.medewerker?.district),
-        'isActive': new FormControl(this.medewerker?.isActive)
+        'voornaam': new FormControl(this.medewerker?.voornaam, [Validators.required]),
+        'achternaam': new FormControl(this.medewerker?.achternaam, [Validators.required]),
+        'geslacht': new FormControl(this.medewerker?.geslacht, [Validators.required]),
+        'email': new FormControl(this.medewerker?.email, [Validators.required]),
+        'telefoon': new FormControl(this.medewerker?.telefoon, [Validators.required]),
+        'straatnaam': new FormControl(this.medewerker?.straatnaam, [Validators.required]),
+        'huisnummer': new FormControl(this.medewerker?.huisnummer, [Validators.required, Validators.minLength(7)]),
+        'district': new FormControl(this.medewerker?.district, [Validators.required]),
+        'isActive': new FormControl(this.medewerker?.isActive, [Validators.required])
       })
       this.dataLoaded = true;
     })
