@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MedewerkersService } from 'src/app/components/medewerkers/medewerkers.service';
 import { Medewerker } from 'src/app/Medewerker';
 
@@ -16,7 +16,7 @@ export class EditMedewerkerComponent implements OnInit {
   dataLoaded: boolean = false;
 
 
-  constructor(private medewerkersService: MedewerkersService, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder) { }
+  constructor(private medewerkersService: MedewerkersService, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder, private router: Router) { }
 
 
   ngOnInit(): void {
@@ -55,6 +55,10 @@ export class EditMedewerkerComponent implements OnInit {
   updateMedewerker(){
     this.medewerkersService.updateMedewerker(this.medewerkerId, this.editMedewerkerForm.value).subscribe(data => {
       console.log("medewerker geupdate")
+       // redirect to medewerkers page showing new value
+       setTimeout(() => {
+        this.router.navigate(['medewerkers']);
+      }, 1500);
     },err => {
         console.log(err)
       }

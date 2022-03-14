@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MedewerkersService } from 'src/app/components/medewerkers/medewerkers.service';
 // const { toast, snackbar } = require('tailwind-toast')
 
@@ -11,7 +12,7 @@ import { MedewerkersService } from 'src/app/components/medewerkers/medewerkers.s
 })
 export class AddMedewerkerComponent implements OnInit {
   addMedewerkerForm: FormGroup = new FormGroup({});
-  constructor(private formBuilder: FormBuilder, private medewerkersService: MedewerkersService) { }
+  constructor(private formBuilder: FormBuilder, private medewerkersService: MedewerkersService, private router: Router) { }
 
   ngOnInit(): void {
     this.addMedewerkerForm = this.formBuilder.group({
@@ -27,9 +28,15 @@ export class AddMedewerkerComponent implements OnInit {
     })
   }
 
-  createMedewerker(){
-    this.medewerkersService.addMedewerker(this.addMedewerkerForm.value).subscribe(data => {
+  async createMedewerker(){
+    await this.medewerkersService.addMedewerker(this.addMedewerkerForm.value).subscribe(() => {
       console.log("Medewerker Created")
+     
+        // redirect to medewerkers page showing new value
+        setTimeout(() => {
+        this.router.navigate(['medewerkers']);
+      }, 1500);
+
       // toast()
       // .warning('Medewerker Gecreeerd en geactiveerd!')
       // .with({
@@ -57,7 +64,8 @@ export class AddMedewerkerComponent implements OnInit {
       //   fontColor: 'white',
       //   fontTone: 200
       // }).show() //display with all parameters
-    })
+    }
+    )   
   }
 
 }
