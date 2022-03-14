@@ -9,7 +9,7 @@
     (submit)="updateMedewerker()"
   >
     <div [formGroup]="editMedewerkerForm">
-      <span class="text-blue font-semibold">Persoonlijke Gegevens</span>
+      <span class="text-blue font-semibold text-lg">Persoonlijke Gegevens</span>
 
       <div class="flex flex-col my-2">
         <label class="text-black my-2" for="voornaam">Voornaam</label>
@@ -17,8 +17,10 @@
           formControlName="voornaam"
           type="text"
           name="voornaam"
+          placeholder="John"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
+        <span *ngIf="editMedewerkerForm.controls['voornaam'].errors && editMedewerkerForm.controls['voornaam'].hasError('required') " class="text-red font-xs my-1">Voer uw voornaam in!</span>
       </div>
       <div class="flex flex-col my-2">
         <label class="text-black my-2" for="achternaam">Achternaam</label>
@@ -26,8 +28,11 @@
           formControlName="achternaam"
           type="text"
           name="achternaam"
+          placeholder="Doe"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
+        <span *ngIf="editMedewerkerForm.controls['achternaam'].errors && editMedewerkerForm.controls['achternaam'].hasError('required') " class="text-red font-xs my-1">Voer uw achternaam in!</span>
+
       </div>
 
       <div class="flex flex-col my-2">
@@ -37,42 +42,52 @@
           formControlName="geslacht"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         >
+          <option value="" selected disabled>Kies een geslacht</option>
           <option value="Man">Man</option>
           <option value="Vrouw">Vrouw</option>
           <option value="Anders">Anders</option>
         </select>
+        <span *ngIf="editMedewerkerForm.controls['geslacht'].errors && editMedewerkerForm.controls['geslacht'].hasError('required') " class="text-red font-xs my-1">Kies een geslacht in!</span>
+
       </div>
-      <span class="text-blue font-semibold">Contact Gegevens</span>
+      <span class="text-blue font-semibold text-lg">Contact Gegevens</span>
       <div class="flex flex-col my-2">
         <label class="text-black my-2" for="email">Email</label>
         <input
           formControlName="email"
           type="text"
           name="email"
+          placeholder="johndoe@gmail.com"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
+        <span *ngIf="editMedewerkerForm.controls['email'].errors && editMedewerkerForm.controls['email'].hasError('required') " class="text-red font-xs my-1">Voer uw email-adres in!</span>
+
       </div>
       <div class="flex flex-col my-2">
         <label class="text-black my-2" for="telefoon">Telefoon</label>
-        <div class="w-96 h-12">
-          <input class="w-1/5 h-full text-white font-semibold text-center rounded-l bg-blue" type="text" disabled value="+597">
-          <input
+        <input
           formControlName="telefoon"
           type="number"
           name="telefoon"
-          class=" bg-gray h-full w-4/5 text-black font-normal hover:bg-white rounded-r hover:border-2 hover:border-blue focus:border-blue outline-none"
-          />
-        </div>
+          placeholder="8987854"
+          class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
+        />
+        <span *ngIf="editMedewerkerForm.controls['telefoon'].errors && editMedewerkerForm.controls['telefoon'].hasError('required') " class="text-red font-xs my-1">Voer uw telefoonnummer in!</span>
+        <span *ngIf="editMedewerkerForm.controls['telefoon'].errors && editMedewerkerForm.controls['telefoon'].hasError('minlength') " class="text-red font-xs my-1">Het telefoonnummer heeft niet genoeg cijfers!</span>
+
       </div>
-      <span class="text-blue font-semibold">Woonplaats</span>
+      <span class="text-blue font-semibold text-lg">Woonplaats</span>
       <div class="flex flex-col my-2">
         <label class="text-black my-2" for="straatnaam">Straatnaam</label>
         <input
           formControlName="straatnaam"
           type="text"
           name="straatnaam"
+          placeholder="Surinamestraat"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
+        <span *ngIf="editMedewerkerForm.controls['straatnaam'].errors && editMedewerkerForm.controls['straatnaam'].hasError('required') " class="text-red font-xs my-1">Voer uw straatnaamin!</span>
+
       </div>
       <div class="flex flex-col my-2">
         <label class="text-black my-2" for="huisnummer">Huisnummer</label>
@@ -80,8 +95,11 @@
           formControlName="huisnummer"
           type="text"
           name="huisnummer"
+          placeholder="5a"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         />
+        <span *ngIf="editMedewerkerForm.controls['huisnummer'].errors && editMedewerkerForm.controls['huisnummer'].hasError('required') " class="text-red font-xs my-1">Voer uw huisnummer in!</span>
+        
       </div>
       <div class="flex flex-col my-2">
         <label class="text-black my-2" for="district">District</label>
@@ -90,6 +108,7 @@
           formControlName="district"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
         >
+          <option value="" selected disabled>Kies een district</option>
           <option value="Brokopondo">Brokopondo</option>
           <option value="Commewijne">Commewijne</option>
           <option value="Coronie">Coronie</option>
@@ -101,13 +120,16 @@
           <option value="Sipaliwini">Sipaliwini</option>
           <option value="Wanica">Wanica</option>
         </select>
+        <span *ngIf="editMedewerkerForm.controls['district'].errors && editMedewerkerForm.controls['district'].hasError('required') " class="text-red font-xs my-1">Voer uw district in!</span>
+
+      </div>
         <app-button
           type="submit"
           class="flex justify-center my-16 hover:animate-pulse"
           color="blue"
           text="Opslaan"
+          [disabled]="!editMedewerkerForm.valid"
         ></app-button>
-      </div>
     </div>
-  </form>    
+  </form>  
 </div>
