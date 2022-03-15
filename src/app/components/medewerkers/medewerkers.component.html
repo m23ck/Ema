@@ -1,9 +1,7 @@
-<!-- <app-button class=" flex justify-center my-8" color="blue" text="Medewerker Toevoegen" routerLink="add-medewerker"
-    routerLinkActive="active"></app-button> -->
-<div class="w-fill p-5">
-    <p-table #dt *ngIf="this.medewerkers.length>0" [columns]="cols" [value]="this.medewerkers" [paginator]="true" [rows]="10"
+<div class="w-fill p-5 overflow-x-scroll space-x-10">
+    <p-table tableStyleClass="min-w-full overflow-x-scroll divide-y" #dt *ngIf="this.medewerkers.length>0" [columns]="cols" [value]="this.medewerkers" [paginator]="true" [rows]="10"
         sortMode="multiple" sortField="voornaam"
-        [globalFilterFields]="['voornaam', 'achternaam', 'district', 'geslacht']">
+        [globalFilterFields]="['voornaam', 'achternaam', 'email']">
         <ng-template pTemplate="caption">
             <div class="flex flex-row justify-left w-full items-center grid-cols-3 mb-1 h-24">
                 <h2 class="font-semibold text-left text-xl w-6/12">Medewerkers</h2>
@@ -18,7 +16,7 @@
                         <img class="w-5" src="../../../assets/images/search_vector.svg" alt="search icon">
                     </div>
                     <input class="bg-gray h-full w-10/12 outline-none border-2 border-gray rounded-r h-10" type="text"
-                        placeholder="Gegevens Zoeken" pInputText (input)="applyFilterGlobal($event, 'contains')" />
+                        placeholder="Type voornaam, achternaam of email" pInputText (input)="applyFilterGlobal($event, 'contains')" />
                     <!-- <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" /> -->
                 </div>
             </div>
@@ -26,7 +24,7 @@
         <ng-template pTemplate="header" let-columns>
             <tr class="bg-blue text-white text-start w-84 h-12 rounded">
                 <th class="text-left pr-12" *ngFor="let col of columns" [pSortableColumn]="col.field">
-                    <span class="text-left w-full pl-1">{{ col.header }}</span>
+                    <span class="text-left w-full pl-1">{{ col.header}}</span>
                     <!-- <img class="w-8" src="../../../assets/images/filter_vector.png" alt="filter icon" width="100%" height="auto"> -->
                     <!-- <p-sortIcon [field]="col.field">
                     </p-sortIcon> -->
@@ -74,8 +72,5 @@
         </div>
         <span class="text-dark-gray tracking-widest font-semibold text-xl my-4">Hmm, het lijkt hier een beetje leeg...</span>
         <app-button class=" flex justify-center my-16 animate-pulse" color="blue" text="Voeg Een Medewerker Toe" [routerLink]="['add-medewerker']" routerLinkActive="active"></app-button>
-        
-        <!-- <a class="w-full bg-blue text-center text-white rounded hover:bg-white hover:text-blue border-2 hover:border-blue focus:bg-white focus:text-blue focus:border-blue px-10 py-2"
-                        [routerLink]="['add-medewerker']">Voeg Een medewerker Toe</a> -->
     </div>
 </div>
