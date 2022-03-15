@@ -8,23 +8,30 @@
       </div>
     </div>
     <span class="my-2 flex justify-center {{ editMedewerkerForm.controls['isActive'] && editMedewerkerForm.controls['isActive'].value ? 'text-green' : 'text-orange' }}">Medewerker is{{ editMedewerkerForm.controls['isActive'] && editMedewerkerForm.controls['isActive'].value ? ' Actief' : ' Inactief' }}</span>
-    <a *ngIf="dataLoaded" [routerLink]="['change-medewerker-status', editMedewerkerForm.controls['id']]" class="flex justify-center my-2">
-      <div class="w-1/2 text-center text-white rounded p-2 border-2 
-      {{editMedewerkerForm.controls['isActive'] && editMedewerkerForm.controls['isActive'].value ? 'text-orange' : 'text-green' }}">
-        {{editMedewerkerForm.controls['isActive'] && editMedewerkerForm.controls['isActive'].value ? 'Deactiveren' : 'Activeren' }}
-      </div>
-    </a>
-
   </div>  
-<!-- 
-    <h3 class="font-base text-xl tracking-widest flex justify-center my-2">Vul de onderstaande gegevens nauwkeurig in
-    </h3> -->
     <form *ngIf="dataLoaded"
     class="flex justify-center my-8"
     [formGroup]="editMedewerkerForm"
     (submit)="updateMedewerker()"
   >
     <div [formGroup]="editMedewerkerForm">
+
+      <div class="flex flex-col my-2">
+        <label class="text-black my-2" for="isActive">Activeren / Deactiveren</label>
+        <select
+          name="isActive"
+          formControlName="isActive"
+          class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
+        >
+          <option value="" selected disabled>Kies een status</option>
+          <option value=true>Actief</option>
+          <option value=false>Inactief</option>
+        </select>
+        <span *ngIf="editMedewerkerForm.controls['isActive'].errors && editMedewerkerForm.controls['isActive'].hasError('required') " class="text-red font-xs my-1">Een probleem heeft zich voorgedaan, kies een status</span>
+
+      </div>
+
+
       <span class="text-blue font-semibold text-lg">Persoonlijke Gegevens</span>
 
       <div class="flex flex-col my-2">
@@ -71,7 +78,7 @@
         <label class="text-black my-2" for="email">Email</label>
         <input
           formControlName="email"
-          type="text"
+          type="email"
           name="email"
           placeholder="johndoe@gmail.com"
           class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
@@ -144,7 +151,7 @@
           class="flex justify-center my-16 hover:animate-pulse"
           color="blue"
           text="Opslaan"
-          [disabled]="!editMedewerkerForm.valid"
+          [disabled]="!editMedewerkerForm.valid && !editMedewerkerForm.dirty "
         ></app-button>
     </div>
   </form>  
