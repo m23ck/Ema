@@ -1,55 +1,32 @@
 # Employee Management Alembo
 
-Database Connectie:
-* Make sure you have turned on MySQL with Xampp 
-
-* Run in je terminal:
- edit the db connection details in the .env file to yours
-
-## Checklist:
-  - The look
-  - The word choice in dutch
-  - the easy of use
-  - the nice to haves
-  - the inputs
-  - highlights on texts
-  - highlights on inputs
-  - highlights on buttons
-  - buttons
-  - create an input component
-  - create a button component
-  - create a form component
-  - host db in docker
-  - write a clear step by step instruction to setting up the project as a developer
-  - Give clear instructions to using it as an end user
-  - animations on load or adding of an employee
+## Benodigdheden:
+- NodeJS
+- MySQL
+- Web Browser
 
 
-------------------------------------------------
+### Installatie Stappen
+#### Stap 1
+- Zorg ervoor dat MySQL aanstaat
+#### Stap 2
+[Clone de EMA github repository]('https://github.com/m23ck/Ema')
+- Maak een terminal / command line open in de map waarin jij het project wilt opslaan en run:
+- <code>git clone https://github.com/m23ck/Ema.git<code>
+#### Stap 3
+[Clone de EMA Backend github repository]('https://github.com/m23ck/ema-backend')
+- Maak een terminal / command line open in de map waarin jij het project wilt opslaan en run:
+- <code>git clone https://github.com/m23ck/ema-backend.git<code>
+#### Stap 4
+- Maak een terminal / command line open in de map met het "ema" project en run:
+- <code>npm install<code>
+#### Stap 5
+- Pas de gegevens in de .env file aan aan de hand van jouw database
+#### Stap 6
+- Maak een terminal / command line open in de map met het "ema_backend" project en run:
+- <code>npm install<code>
 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+Bekijk mijn mockup design voor het systeem die ik in figma heb gemaakt [hier]('https://www.figma.com/file/7Ev9XaKSCu5fdPkUmQg1Ex/ema?node-id=6%3A7')
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Het API documentatie is te vinden op [localhost:4423/documentatie]('http://127.0.0.1:4423/documentatie')
