@@ -8,7 +8,7 @@
 
 ## De stack die ik heb gebruikt om dit systeem te realiseren:
 - NodeJs
-- NextJs(voor het API)
+- NestJs(voor de API)
 - Prisma(als ORM)
 - Helmet(voor Security)
 - Angular
@@ -40,7 +40,7 @@
 
 #### Stap 4: Frontend Opstarten
 - In de terminal / command line waarin ema open staat
-  - run <code>npm run start:dev</code>
+  - run <code>npm run start</code>
 
 ### Stap 5: Het Systeem Gebruiken
 - Ga naar [localhost:4200 en start met het gebruiken van het systeem]('http://127.0.0.1:4200')
