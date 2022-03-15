@@ -62,10 +62,6 @@ export class EditMedewerkerComponent implements OnInit {
   updateMedewerker(){
     console.log(this.editMedewerkerForm.value)
     this.spinner.show();
-    if(this.editMedewerkerForm.contains('isActive')){
-      this.editMedewerkerForm.value['isActive'] =  this.editMedewerkerForm.controls['isActive'].value ? true : false;
-
-    }
     this.medewerkersService.updateMedewerker(this.medewerkerId, this.editMedewerkerForm.value).subscribe(data => {
       console.log("medewerker geupdate")
        // redirect to medewerkers page showing new value
