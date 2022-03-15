@@ -15,39 +15,34 @@
 
 
 ## Installatie Stappen
-#### Stap 1
-- Zorg ervoor dat MySQL aanstaat
-
-#### Stap 2
-[Clone de EMA github repository]('https://github.com/m23ck/Ema')
+1. Zorg ervoor dat MySQL aanstaat
+2. [Clone de EMA github repository]('https://github.com/m23ck/Ema')
+3. Maak een terminal / command line open in de map waarin jij het project wilt opslaan en run:
+4. <code> git clone https://github.com/m23ck/Ema.git </code>
+5. [Clone de EMA Backend github repository]('https://github.com/m23ck/ema-backend')
 - Maak een terminal / command line open in de map waarin jij het project wilt opslaan en run:
-- <code>git clone https://github.com/m23ck/Ema.git<code>
-
-#### Stap 3
-[Clone de EMA Backend github repository]('https://github.com/m23ck/ema-backend')
-- Maak een terminal / command line open in de map waarin jij het project wilt opslaan en run:
-- <code>git clone https://github.com/m23ck/ema-backend.git<code>
-
+- <code>git clone https://github.com/m23ck/ema-backend.git</code>
+---
 #### Stap 4
 - Maak een terminal / command line open in de map met het "ema" project en run:
-- <code>npm install<code>
+- <code>npm install</code>
 
 #### Stap 5
 - Pas de gegevens in de .env file aan aan de hand van jouw database
 
 #### Stap 6
 - Maak een terminal / command line open in de map met het "ema_backend" project en run:
-- <code>npm install<code>
+- <code>npm install</code>
 - Je zou eventueel manueel een database kunnen creeeren en de SQL file in ema_backend/prisma/ema_db.sql kunnen importeren met bestaande records
 
 
 #### Stap 7: Backend Opstarten
 - In de terminal / command line waarin ema_backend open staat
-  - run <code>npm run start:dev<code>
+  - run <code>npm run start:dev</code>
 
 #### Stap 7: Frontend Opstarten
 - In de terminal / command line waarin ema open staat
-  - run <code>npm run start:dev<code>
+  - run <code>npm run start:dev</code>
 
 ### Stap 8:
 - Ga naar [localhost:4200 en start met het gebruiken van het systeem]('http://127.0.0.1:4200')
