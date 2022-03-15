@@ -16,22 +16,6 @@
   >
     <div [formGroup]="editMedewerkerForm">
 
-      <div class="flex flex-col my-2">
-        <label class="text-black my-2" for="isActive">Activeren / Deactiveren</label>
-        <select
-          name="isActive"
-          formControlName="isActive"
-          class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
-        >
-          <option value="" selected disabled>Kies een status</option>
-          <option value=true>Actief</option>
-          <option value=false>Inactief</option>
-        </select>
-        <span *ngIf="editMedewerkerForm.controls['isActive'].errors && editMedewerkerForm.controls['isActive'].hasError('required') " class="text-red font-xs my-1">Een probleem heeft zich voorgedaan, kies een status</span>
-
-      </div>
-
-
       <span class="text-blue font-semibold text-lg">Persoonlijke Gegevens</span>
 
       <div class="flex flex-col my-2">
@@ -88,14 +72,18 @@
       </div>
       <div class="flex flex-col my-2">
         <label class="text-black my-2" for="telefoon">Telefoon</label>
-        <input
+        <div class="w-full">
+          <span class="w-1/4 h-full p-3 font-semibold text-center rounded-l bg-blue text-white justify-center items-center border+
+           border-blue">+597</span>
+          <input
           formControlName="telefoon"
           type="number"
           name="telefoon"
           placeholder="8987854"
-          class="w-96 h-12 bg-gray text-black font-normal hover:bg-white rounded hover:border-2 hover:border-gray outline-none"
-        />
-        <span *ngIf="editMedewerkerForm.controls['telefoon'].errors && editMedewerkerForm.controls['telefoon'].hasError('required') " class="text-red font-xs my-1">Voer uw telefoonnummer in!</span>
+          class="w-5/6 h-12 bg-gray text-black font-normal hover:bg-white rounded-r hover:border-2 hover:border-gray outline-none"
+          />
+        </div>
+          <span *ngIf="editMedewerkerForm.controls['telefoon'].errors && editMedewerkerForm.controls['telefoon'].hasError('required') " class="text-red font-xs my-1">Voer uw telefoonnummer in!</span>
         <span *ngIf="editMedewerkerForm.controls['telefoon'].errors && editMedewerkerForm.controls['telefoon'].hasError('minlength') " class="text-red font-xs my-1">Het telefoonnummer heeft niet genoeg cijfers!</span>
 
       </div>
