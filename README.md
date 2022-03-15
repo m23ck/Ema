@@ -47,6 +47,10 @@
 
 
 ## Extra Resources:
+[Bekijk De Mockups]('https://www.figma.com/file/7Ev9XaKSCu5fdPkUmQg1Ex/ema?node-id=6%3A7')
+
+[Lees het API Documentatie]('http://127.0.0.1:4423/documentatie')
+
 Bekijk mijn mockup design voor het systeem die ik in figma heb gemaakt [hier]('https://www.figma.com/file/7Ev9XaKSCu5fdPkUmQg1Ex/ema?node-id=6%3A7')
 
 Het API documentatie voor alle interactie met de backend is te vinden op [localhost:4423/documentatie]('http://127.0.0.1:4423/documentatie')
