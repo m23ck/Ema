@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { MedewerkersService } from 'src/app/components/medewerkers/medewerkers.service';
-// const { toast, snackbar } = require('tailwind-toast')
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-medewerker',
@@ -12,58 +12,58 @@ import { MedewerkersService } from 'src/app/components/medewerkers/medewerkers.s
 })
 export class AddMedewerkerComponent implements OnInit {
   addMedewerkerForm: FormGroup = new FormGroup({});
-  constructor(private formBuilder: FormBuilder, private medewerkersService: MedewerkersService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private medewerkersService: MedewerkersService, private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    /** spinner starts on init */
+  this.spinner.show();
     this.addMedewerkerForm = this.formBuilder.group({
       'voornaam': new FormControl('', [Validators.required]),
       'achternaam': new FormControl('', [Validators.required]),
       'geslacht': new FormControl('', [Validators.required]),
-      'email': new FormControl('', [Validators.required]),
+      'email': new FormControl('', [Validators.required, Validators.email]),
       'telefoon': new FormControl('', [Validators.required, Validators.minLength(7)]),
       'straatnaam': new FormControl('', [Validators.required]),
       'huisnummer': new FormControl('', [Validators.required]),
       'district': new FormControl('', [Validators.required]),
       'isActive': new FormControl(true, [Validators.required])
     })
+  this.spinner.hide()
   }
 
   async createMedewerker(){
+    this.spinner.show();
     await this.medewerkersService.addMedewerker(this.addMedewerkerForm.value).subscribe(() => {
       console.log("Medewerker Created")
      
         // redirect to medewerkers page showing new value
-        setTimeout(() => {
-        this.router.navigate(['medewerkers']);
-      }, 1500);
+      //  this.router.navigate(['medewerkers']);
+       this.spinner.hide();
+       Swal.fire({
+        title: 'Success!',
+        text: 'Medewerker succesvol toegevoegd!',
+        icon: 'success',
+        confirmButtonText: 'Doorgaan',
+        color: '#0D67A8',
+        confirmButtonColor: '#0D67A8'
+      }).then((action) => {
+        if (action.isConfirmed) return this.router.navigate(['medewerkers']);
+        return null
+      } )
 
-      // toast()
-      // .warning('Medewerker Gecreeerd en geactiveerd!')
-      // .with({
-      //   shape: 'pill',
-      //   duration: 2500,
-      //   speed: 1000,
-      //   positionX: 'end',
-      //   positionY: 'top',
-      //   color: 'bg-blue',
-      //   fontColor: 'white',
-      //   fontTone: 200
-      // }).show() //display with all parameters
     },
     err => {
       console.log(err)
-      // toast()
-      // .warning('An error has occurred!')
-      // .with({
-      //   shape: 'pill',
-      //   duration: 2500,
-      //   speed: 1000,
-      //   positionX: 'end',
-      //   positionY: 'top',
-      //   color: 'bg-red',
-      //   fontColor: 'white',
-      //   fontTone: 200
-      // }).show() //display with all parameters
+      this.spinner.hide();
+
+      Swal.fire({
+        title: 'Error!',
+        text: 'Een probleem heeft zich voorgedaan, probeer het opnieuw!',
+        icon: 'error',
+        confirmButtonText: 'Doorgaan',
+        color: '#EB7E1A',
+        confirmButtonColor: '#EB7E1A'
+      })
     }
     )   
   }

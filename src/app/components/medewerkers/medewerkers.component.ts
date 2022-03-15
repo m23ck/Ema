@@ -3,6 +3,7 @@ import { MedewerkersService } from './medewerkers.service';
 import { Medewerker } from 'src/app/Medewerker';
 import {Table, TableModule} from 'primeng/table';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-medewerkers',
@@ -17,13 +18,17 @@ export class MedewerkersComponent implements OnInit {
   cols!: any[];
   @ViewChild('dt') dt: Table | undefined;
 
-  constructor(private medewerkersService: MedewerkersService, private activatedRoute: ActivatedRoute) { }
+  constructor(private medewerkersService: MedewerkersService, private activatedRoute: ActivatedRoute, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    /** spinner starts on init */
+  this.spinner.show();
     this.getMedewerkers();
-    const medewerkerId = this.activatedRoute.params.subscribe(data => {
+    this.activatedRoute.params.subscribe(data => {
       this.medewerkerId = data['id'];
       this.medewerker = data['medewerker'];
+      this.spinner.hide();
+      
     })
 
     this.cols = [
