@@ -57,8 +57,8 @@ Het API documentatie voor alle interactie met de backend is te vinden op http://
 2. Medewerkers' Gegevens Bewerken
 3. Medewerkers Activeren / Deactiveren
 4. Alle Medewerkers Bekijken in een tabel
-5. Het tabel sorteren op elk Kolom
-6. In Het tabel zoeken naar een voornaam, achternaam of email
+5. de tabel sorteren op elk Kolom
+6. In de tabel zoeken naar een voornaam, achternaam of email
 
 
 ---
