@@ -55,3 +55,16 @@
 Bekijk mijn mockup design voor het systeem die ik in figma heb gemaakt [hier]('https://www.figma.com/file/7Ev9XaKSCu5fdPkUmQg1Ex/ema?node-id=6%3A7')
 
 Het API documentatie is te vinden op [localhost:4423/documentatie]('http://127.0.0.1:4423/documentatie')
+
+
+## Wat kan het systeem?
+1. Medewerkers creeeren
+2. Medewerkers' Gegevens Bewerken
+3. Medewerkers Activeren / Deactiveren
+4. Alle Medewerkers Bekijken in een tabel
+5. Het tabel sorteren op elk Kolom
+6. In Het tabel zoeken naar een voornaam, achternaam of email
+
+
+---
+# Thank You!
